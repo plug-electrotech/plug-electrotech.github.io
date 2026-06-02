@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLUG ELECTROTECH — Nos Solutions Habitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --red:    #cc1414;
+  --red2:   #a80e0e;
+  --yellow: #f5c400;
+  --green:  #2d8c4e;
+  --green2: #1e6338;
+  --teal:   #1a9a8a;
+  --white:  #ffffff;
+  --offwhite: #f8f6f0;
+  --dark:   #1a1a1a;
+  --muted:  #555;
+  --dark2:  #111;
+}
+
+html { scroll-behavior: smooth; }
+html, body { overflow-x: hidden; }
+body { font-family: 'Open Sans', sans-serif; background: var(--offwhite); color: var(--dark); }
+
+/* ═══ NAV ═══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--red);
+  display: flex; align-items: stretch;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+.nav-logo-block {
+  background: var(--dark);
+  padding: 0 32px;
+  display: flex; flex-direction: column; justify-content: center;
+  text-decoration: none;
+  min-width: 220px;
+}
+.nav-logo-top { font-family: 'Anton', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--yellow); line-height: 1; }
+.nav-logo-sub { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.6); text-transform: uppercase; margin-top: 2px; }
+.nav-links { display: flex; align-items: stretch; list-style: none; flex: 1; }
+.nav-links li a {
+  display: flex; align-items: center;
+  padding: 0 22px;
+  font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+  color: white; text-decoration: none;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-links li a:hover { background: var(--red2); color: var(--yellow); }
+.nav-link-habitation { background: var(--yellow) !important; color: var(--dark) !important; font-weight: 700; }
+.nav-link-habitation:hover { background: #e0b000 !important; color: var(--dark) !important; }
+.nav-cta-block {
+  display: flex; align-items: center;
+  padding: 0 28px;
+  background: var(--dark); color: var(--yellow);
+  font-family: 'Anton', sans-serif; font-size: 14px; letter-spacing: 2px;
+  text-decoration: none; text-transform: uppercase;
+  border-left: 3px solid var(--yellow);
+  transition: background 0.2s;
+  min-height: 60px;
+}
+.nav-cta-block:hover { background: #2a2a2a; }
+
+/* ── Hamburger ── */
+.nav-burger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px;
+  width: 48px; height: 100%;
+  background: none; border: none; cursor: pointer;
+  padding: 0 14px; flex-shrink: 0;
+}
+.nav-burger span {
+  display: block; width: 22px; height: 2px;
+  background: white; border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ═══ HERO HABITATION ═══ */
+#hero-hab {
+  min-height: 100vh;
+  background: var(--dark);
+  position: relative;
+  display: flex; align-items: center;
+  overflow: hidden;
+  padding-top: 60px;
+}
+.hero-hab-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(135deg, rgba(20,20,20,0.85) 0%, rgba(30,99,56,0.6) 100%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+/* Maison SVG décorative en fond */
+.hero-hab-house {
+  position: absolute; right: -40px; bottom: 0;
+  width: 55vw; max-width: 700px;
+  opacity: 0.07;
+}
+.hero-hab-inner {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 60px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.hero-hab-tag {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--yellow);
+  background: rgba(245,196,0,0.12); border: 1px solid rgba(245,196,0,0.3);
+  padding: 6px 16px; border-radius: 2px; margin-bottom: 24px;
+}
+.hero-hab-h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 0.95; letter-spacing: 1px;
+  color: white; margin-bottom: 24px;
+}
+.hero-hab-h1 .line-green { color: var(--green); display: block; font-size: 1.1em; }
+.hero-hab-desc {
+  font-size: 17px; line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 36px; max-width: 480px;
+}
+.hero-hab-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.btn-yellow {
+  background: var(--yellow); color: var(--dark);
+  font-family: 'Anton', sans-serif; font-size: 16px; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 16px 32px; border-radius: 2px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-block;
+}
+.btn-yellow:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.3); }
+.btn-outline-white {
+  border: 2px solid rgba(255,255,255,0.4); color: white;
+  font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+  display: inline-block;
+}
+.btn-outline-white:hover { border-color: var(--yellow); color: var(--yellow); }
+
+/* Visual héro : carte maison connectée */
+.hero-hab-visual {
+  display: flex; flex-direction: column; align-items: center; gap: 24px;
+}
+.house-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  width: 100%; max-width: 340px;
+  position: relative;
+}
+.house-card-title {
+  font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--green); margin-bottom: 20px;
+}
+.house-icon-main {
+  font-size: 72px; text-align: center; display: block;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(45,140,78,0.5));
+  animation: housePulse 3s ease-in-out infinite;
+}
+@keyframes housePulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(45,140,78,0.5)); }
+  50% { filter: drop-shadow(0 0 35px rgba(45,140,78,0.9)); }
+}
+.house-sensors {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin-top: 16px;
+}
+.sensor-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px; padding: 10px 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sensor-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot-green { background: #4cff88; box-shadow: 0 0 6px #4cff88; animation: blink 2s infinite; }
+.dot-green2 { background: #4cff88; box-shadow: 0 0 6px #4cff88; animation: blink 2s 0.5s infinite; }
+.dot-green3 { background: #4cff88; box-shadow: 0 0 6px #4cff88; animation: blink 2s 1s infinite; }
+.dot-green4 { background: #4cff88; box-shadow: 0 0 6px #4cff88; animation: blink 2s 1.5s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.sensor-label { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 1px; color: rgba(255,255,255,0.6); text-transform: uppercase; line-height: 1.2; }
+.sensor-val { font-size: 11px; color: #4cff88; font-weight: 600; }
+
+/* Badge "sécurisé" */
+.house-badge-secure {
+  position: absolute; top: -12px; right: 20px;
+  background: var(--green); color: white;
+  font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+  box-shadow: 0 3px 12px rgba(45,140,78,0.5);
+}
+
+/* ═══ STATS BAR ═══ */
+.stats-hab {
+  background: var(--dark2);
+  border-top: 3px solid var(--yellow);
+  display: grid; grid-template-columns: repeat(4, 1fr);
+}
+.stat-hab-item {
+  padding: 28px 24px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.stat-hab-item:last-child { border-right: none; }
+.stat-hab-num {
+  font-family: 'Anton', sans-serif; font-size: 44px; letter-spacing: 1px;
+  color: var(--yellow); line-height: 1;
+}
+.stat-hab-num sup { font-size: 22px; }
+.stat-hab-label { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-top: 6px; }
+
+/* ═══ SECTIONS COMMUNES ═══ */
+section { padding: 90px 60px; }
+/* Sections pleine largeur */
+#hero-hab, .stats-hab, #pourquoi-hab, #comment-hab, #equipements, #testi-hab, #cta-hab {
+  max-width: none;
+  margin: 0;
+}
+/* Sections à largeur contrainte */
+#solutions-hab {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.full-section { max-width: none; padding: 90px 0; }
+.full-section > * { max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 60px; }
+.section-tag {
+  font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--red);
+  display: block; margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1; letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.section-desc { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 600px; }
+.accent { color: var(--red); }
+.accent-green { color: var(--green); }
+
+/* ═══ POURQUOI NOUS ═══ */
+#pourquoi-hab { background: var(--white); max-width: none; padding: 90px 60px; }
+.pourquoi-inner { max-width: 1200px; margin: 0 auto; }
+.pourquoi-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  margin-top: 56px;
+}
+.pourquoi-card {
+  background: var(--offwhite);
+  border-left: 4px solid var(--red);
+  padding: 36px 28px;
+  position: relative; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pourquoi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+.pourquoi-card::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 80px; height: 80px;
+  background: var(--red); opacity: 0.05;
+  border-radius: 0 0 0 80px;
+}
+.pourquoi-ico { font-size: 40px; margin-bottom: 20px; display: block; }
+.pourquoi-card h3 { font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 1px; margin-bottom: 12px; }
+.pourquoi-card p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ═══ SOLUTIONS ═══ */
+#solutions-hab { background: var(--offwhite); }
+.solutions-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  margin-top: 56px;
+}
+.sol-card {
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  overflow: visible;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.sol-header, .sol-body { overflow: hidden; border-radius: 2px; }
+.sol-card:hover { border-color: var(--red); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); }
+.sol-card.featured { border-color: var(--red); }
+.sol-card.featured::before {
+  content: '⭐ POPULAIRE';
+  position: absolute; top: 0; right: 0;
+  background: var(--red); color: white;
+  font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px;
+  padding: 5px 14px;
+}
+.sol-header { padding: 32px 28px 24px; border-bottom: 2px solid var(--offwhite); }
+.sol-ico { font-size: 44px; margin-bottom: 16px; display: block; }
+.sol-name { font-family: 'Anton', sans-serif; font-size: 26px; letter-spacing: 1px; margin-bottom: 8px; }
+.sol-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.sol-price { margin-top: 16px; }
+.sol-price-from { font-size: 11px; color: var(--muted); font-family: 'Oswald', sans-serif; letter-spacing: 1px; text-transform: uppercase; }
+.sol-price-num { font-family: 'Anton', sans-serif; font-size: 40px; color: var(--red); line-height: 1; }
+.sol-price-num sup { font-size: 20px; }
+.sol-price-note { font-size: 11px; color: var(--muted); }
+.sol-body { padding: 24px 28px; }
+.sol-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.sol-features li { font-size: 13px; color: var(--dark); display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
+.sol-features li::before { content: '✓'; color: var(--green); font-weight: 700; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.sol-cta { display: block; margin: 24px 28px 28px; text-align: center;
+  background: var(--dark); color: var(--yellow);
+  font-family: 'Anton', sans-serif; font-size: 14px; letter-spacing: 2px;
+  text-decoration: none; text-transform: uppercase;
+  padding: 14px 20px; border-radius: 2px;
+  transition: background 0.2s;
+}
+.sol-card.featured .sol-cta { background: var(--red); color: white; }
+.sol-cta:hover { background: var(--red); color: white; }
+.sol-card.featured .sol-cta:hover { background: var(--red2); }
+
+/* ═══ COMMENT ÇA MARCHE ═══ */
+#comment-hab { background: var(--dark); max-width: none; padding: 90px 60px; }
+.comment-inner { max-width: 1200px; margin: 0 auto; }
+#comment-hab .section-tag { color: var(--yellow); }
+#comment-hab .section-title { color: white; }
+#comment-hab .section-desc { color: rgba(255,255,255,0.6); }
+.process-hab {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  margin-top: 56px; position: relative;
+}
+.process-hab::before {
+  content: '';
+  position: absolute; top: 40px; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, var(--red), var(--yellow), var(--green), var(--teal));
+  z-index: 0;
+}
+.proc-hab-step { text-align: center; position: relative; z-index: 1; }
+.proc-hab-num {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--dark); border: 3px solid var(--yellow);
+  font-family: 'Anton', sans-serif; font-size: 32px; color: var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px;
+}
+.proc-hab-step:nth-child(2) .proc-hab-num { border-color: var(--red); color: var(--red); }
+.proc-hab-step:nth-child(3) .proc-hab-num { border-color: var(--green); color: var(--green); }
+.proc-hab-step:nth-child(4) .proc-hab-num { border-color: var(--teal); color: var(--teal); }
+.proc-hab-ico { font-size: 28px; margin-bottom: 16px; display: block; }
+.proc-hab-step h3 { font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 1px; color: white; margin-bottom: 10px; }
+.proc-hab-step p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+/* ═══ ÉQUIPEMENTS ═══ */
+#equipements { background: var(--white); max-width: none; padding: 90px 60px; }
+.equip-inner { max-width: 1200px; margin: 0 auto; }
+.equip-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+.equip-list { display: flex; flex-direction: column; gap: 24px; }
+.equip-item {
+  display: flex; align-items: flex-start; gap: 20px;
+  padding: 24px; background: var(--offwhite); border-radius: 4px;
+  border-left: 4px solid var(--red);
+  transition: transform 0.2s;
+}
+.equip-item:hover { transform: translateX(4px); }
+.equip-ico-wrap {
+  width: 56px; height: 56px; flex-shrink: 0;
+  background: var(--red); border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+}
+.equip-item:nth-child(2) .equip-ico-wrap { background: var(--green); }
+.equip-item:nth-child(3) .equip-ico-wrap { background: var(--teal); }
+.equip-item:nth-child(4) .equip-ico-wrap { background: #6a3db8; }
+.equip-item:nth-child(5) .equip-ico-wrap { background: #c87020; }
+.equip-body h3 { font-family: 'Oswald', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 1px; margin-bottom: 6px; }
+.equip-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.equip-body .equip-tag {
+  display: inline-block; margin-top: 8px;
+  font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--red);
+  background: rgba(204,20,20,0.08); border: 1px solid rgba(204,20,20,0.2);
+  padding: 3px 10px; border-radius: 2px;
+}
+
+/* Diagram maison */
+.equip-diagram {
+  background: var(--dark); border-radius: 12px;
+  padding: 36px 32px; position: relative; overflow: hidden;
+}
+.equip-diagram::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(45,140,78,0.15) 0%, transparent 60%);
+}
+.equip-diagram-title { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--green); margin-bottom: 28px; }
+.house-diagram {
+  position: relative;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 28px 20px 20px;
+  min-height: 300px;
+}
+.hd-roof {
+  position: absolute; top: -28px; left: 50%; transform: translateX(-50%);
+  font-size: 60px; line-height: 1;
+}
+.hd-label {
+  font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  text-align: center; margin-bottom: 20px;
+}
+.hd-zones { display: flex; flex-direction: column; gap: 10px; }
+.hd-zone {
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px; padding: 10px 14px;
+}
+.hd-zone-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.hd-zone-name { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,0.7); text-transform: uppercase; flex: 1; }
+.hd-zone-status { font-size: 10px; font-weight: 600; }
+.status-ok { color: #4cff88; }
+.equip-central {
+  margin-top: 20px;
+  background: rgba(245,196,0,0.08); border: 1px solid rgba(245,196,0,0.25);
+  border-radius: 6px; padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.equip-central-ico { font-size: 24px; }
+.equip-central-text { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--yellow); }
+.equip-central-sub { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+/* ═══ TÉMOIGNAGES ═══ */
+#testi-hab { background: var(--offwhite); }
+.testi-hab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.testi-hab-card {
+  background: var(--white); padding: 28px 24px;
+  border-radius: 4px; border-bottom: 4px solid var(--red);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+.testi-stars { color: var(--yellow); font-size: 16px; margin-bottom: 14px; }
+.testi-quote { font-size: 14px; color: var(--dark); line-height: 1.7; font-style: italic; margin-bottom: 18px; }
+.testi-author { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+.testi-location { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* ═══ CTA FINAL ═══ */
+#cta-hab { background: var(--red); max-width: none; padding: 80px 60px; text-align: center; }
+.cta-hab-inner { max-width: 700px; margin: 0 auto; }
+#cta-hab h2 { font-family: 'Anton', sans-serif; font-size: clamp(36px, 4vw, 56px); color: white; line-height: 1; margin-bottom: 20px; letter-spacing: 1px; }
+#cta-hab h2 span { color: var(--yellow); }
+#cta-hab p { font-size: 17px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 40px; }
+.cta-hab-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-white {
+  background: white; color: var(--red);
+  font-family: 'Anton', sans-serif; font-size: 16px; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 16px 36px; border-radius: 2px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-block;
+}
+.btn-white:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.2); }
+.btn-outline-white2 {
+  border: 2px solid rgba(255,255,255,0.5); color: white;
+  font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 2px;
+  text-transform: uppercase; text-decoration: none;
+  padding: 14px 28px; border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s;
+  display: inline-block;
+}
+.btn-outline-white2:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+/* ═══ FOOTER ═══ */
+footer { background: var(--dark2); border-top: 3px solid var(--yellow); }
+.footer-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 30px 60px; gap: 24px; max-width: 1200px; margin: 0 auto;
+}
+.footer-logo { font-family: 'Anton', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--yellow); }
+.footer-logo small { display: block; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.4); font-weight: 400; margin-top: 2px; }
+.footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-links a { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--yellow); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 14px 60px; text-align: center; font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,0.3); max-width: 1200px; margin: 0 auto; }
+
+/* ═══ MOBILE CTA ═══ */
+.mobile-cta-bar { display: none; }
+
+/* ── Nav mobile open state ── */
+@media (max-width: 900px) {
+  .nav-links.open {
+    display: flex !important; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--dark); z-index: 999;
+    border-top: 2px solid var(--yellow);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .nav-links.open li a {
+    padding: 14px 24px; border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    font-size: 14px;
+  }
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  nav { flex-wrap: wrap; }
+  .nav-logo-block { min-width: 0; padding: 12px 20px; flex: 1; }
+  .nav-logo-top { font-size: 17px; }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+  .nav-cta-block { padding: 0 18px; font-size: 13px; min-height: 52px; }
+
+  #hero-hab { min-height: auto; padding-top: 64px; }
+  .hero-hab-inner { grid-template-columns: 1fr; gap: 40px; padding: 48px 24px; }
+  .hero-hab-visual { order: -1; }
+  .stats-hab { grid-template-columns: repeat(2, 1fr); }
+  .stat-hab-item:nth-child(2) { border-right: none; }
+  .stat-hab-item:nth-child(4) { border-right: none; }
+  .pourquoi-grid { grid-template-columns: 1fr 1fr; }
+  .solutions-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .process-hab { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .process-hab::before { display: none; }
+  .equip-layout { grid-template-columns: 1fr; }
+  .testi-hab-grid { grid-template-columns: 1fr; }
+  section, #pourquoi-hab, #comment-hab, #equipements, #cta-hab, #testi-hab, #solutions-hab { padding: 60px 24px; }
+  .footer-top { flex-direction: column; padding: 24px; text-align: center; }
+  .footer-links { justify-content: center; }
+  .footer-bottom { padding: 12px 24px; }
+}
+
+@media (max-width: 600px) {
+  html, body { overflow-x: hidden; }
+  .nav-logo-top { font-size: 14px; letter-spacing: 1px; }
+  .nav-logo-sub { font-size: 8px; }
+  .nav-cta-block { font-size: 11px; padding: 0 12px; min-height: 48px; }
+
+  #hero-hab { padding-top: 52px; }
+  .hero-hab-inner { padding: 32px 16px; gap: 28px; }
+  .hero-hab-h1 { font-size: clamp(38px, 10vw, 58px); }
+  .hero-hab-desc { font-size: 14px; }
+  .hero-hab-actions { flex-direction: column; align-items: stretch; }
+  .btn-yellow, .btn-outline-white { text-align: center; width: 100%; }
+  .house-card { padding: 24px 20px; }
+  .house-icon-main { font-size: 56px; }
+
+  .stats-hab { grid-template-columns: repeat(2, 1fr); }
+  .stat-hab-item { padding: 20px 10px; }
+  .stat-hab-num { font-size: 34px; }
+  .stat-hab-label { font-size: 9px; }
+
+  section, #pourquoi-hab, #comment-hab, #equipements, #cta-hab, #testi-hab, #solutions-hab { padding: 48px 16px; }
+  .equip-inner, .pourquoi-inner, .comment-inner { padding: 0; }
+  .section-title { font-size: clamp(26px, 7.5vw, 40px); }
+  .pourquoi-grid { grid-template-columns: 1fr; }
+  .process-hab { grid-template-columns: 1fr; gap: 28px; }
+  .proc-hab-num { width: 64px; height: 64px; font-size: 26px; }
+  .testi-hab-grid { gap: 16px; }
+  .cta-hab-actions { flex-direction: column; align-items: stretch; }
+  .btn-white, .btn-outline-white2 { text-align: center; }
+  #cta-hab h2 { font-size: clamp(30px, 8vw, 46px); }
+  #cta-hab p { font-size: 14px; }
+  .footer-top { padding: 20px 16px; gap: 16px; }
+  .footer-links { gap: 12px; }
+  .footer-bottom { padding: 10px 16px; }
+
+  .mobile-cta-bar {
+    display: flex !important;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    border-top: 3px solid var(--yellow);
+  }
+  .mobile-cta-bar a {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 13px 8px;
+    font-family: 'Anton', sans-serif; font-size: 12px; letter-spacing: 1px;
+    text-decoration: none; color: white; text-transform: uppercase;
+  }
+  .mobile-cta-bar a:first-child { background: var(--green); border-right: 2px solid var(--yellow); }
+  .mobile-cta-bar a:last-child { background: var(--red); }
+  body { padding-bottom: 60px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo-block">
+    <div class="nav-logo-top">PLUG ELECTROTECH</div>
+    <div class="nav-logo-sub">Système de sécurité</div>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html#pourquoi" onclick="closeMenu()">Notre Tech</a></li>
+    <li><a href="index.html#produits" onclick="closeMenu()">Solutions Marine</a></li>
+    <li><a href="index.html#processus" onclick="closeMenu()">Installation</a></li>
+    <li><a href="index.html#temoignages" onclick="closeMenu()">Avis</a></li>
+    <li><a href="habitation.html" class="nav-link-habitation">🏠 Habitation</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="index.html#contact" class="nav-cta-block">DEVIS GRATUIT →</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero-hab">
+  <div class="hero-hab-bg"></div>
+  <svg class="hero-hab-house" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="250,20 480,200 380,200 380,380 120,380 120,200 20,200" fill="white"/>
+  </svg>
+  <div class="hero-hab-inner">
+    <div class="hero-hab-text">
+      <span class="hero-hab-tag">Solutions Anti-Intrusion Résidentielles</span>
+      <h1 class="hero-hab-h1">
+        Votre maison,<br>
+        <span class="line-green">Blindée.</span>
+      </h1>
+      <p class="hero-hab-desc">Alarmes, caméras, détecteurs — PLUG ELECTROTECH sécurise votre domicile avec les mêmes équipements professionnels que pour nos clients marins. Pose rapide, sans travaux, alertes en temps réel.</p>
+      <div class="hero-hab-actions">
+        <a href="#solutions-hab" class="btn-yellow">Voir nos solutions →</a>
+        <a href="index.html#contact" class="btn-outline-white">Devis gratuit</a>
+      </div>
+    </div>
+    <div class="hero-hab-visual">
+      <div class="house-card">
+        <div class="house-badge-secure">✓ Sécurisé</div>
+        <div class="house-card-title">Tableau de bord domicile</div>
+        <span class="house-icon-main">🏠</span>
+        <div class="house-sensors">
+          <div class="sensor-item">
+            <div class="sensor-dot dot-green"></div>
+            <div>
+              <div class="sensor-label">Porte entrée</div>
+              <div class="sensor-val">● Fermée</div>
+            </div>
+          </div>
+          <div class="sensor-item">
+            <div class="sensor-dot dot-green2"></div>
+            <div>
+              <div class="sensor-label">Caméra ext.</div>
+              <div class="sensor-val">● Active</div>
+            </div>
+          </div>
+          <div class="sensor-item">
+            <div class="sensor-dot dot-green3"></div>
+            <div>
+              <div class="sensor-label">Mouvement</div>
+              <div class="sensor-val">● Aucun</div>
+            </div>
+          </div>
+          <div class="sensor-item">
+            <div class="sensor-dot dot-green4"></div>
+            <div>
+              <div class="sensor-label">Sirène</div>
+              <div class="sensor-val">● En veille</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<div class="stats-hab">
+  <div class="stat-hab-item">
+    <div class="stat-hab-num">300<sup>+</sup></div>
+    <div class="stat-hab-label">Maisons sécurisées</div>
+  </div>
+  <div class="stat-hab-item">
+    <div class="stat-hab-num">12<sup>ans</sup></div>
+    <div class="stat-hab-label">D'expertise terrain</div>
+  </div>
+  <div class="stat-hab-item">
+    <div class="stat-hab-num">30<sup>s</sup></div>
+    <div class="stat-hab-label">Temps d'alerte max</div>
+  </div>
+  <div class="stat-hab-item">
+    <div class="stat-hab-num">24<sup>h</sup></div>
+    <div class="stat-hab-label">Support réactif</div>
+  </div>
+</div>
+
+<!-- ═══ POURQUOI ═══ -->
+<div id="pourquoi-hab">
+  <div class="pourquoi-inner">
+    <span class="section-tag">Pourquoi nous choisir</span>
+    <h2 class="section-title">Une sécurité <span class="accent">professionnelle</span><br>pour votre domicile</h2>
+    <p class="section-desc">Nos solutions habitation sont issues de la même expertise que nos systèmes marins — conçus pour des environnements exigeants, ils surpassent largement les alarmes du commerce.</p>
+    <div class="pourquoi-grid">
+      <div class="pourquoi-card">
+        <span class="pourquoi-ico">🔧</span>
+        <h3>Installation sans travaux</h3>
+        <p>Systèmes 100% sans fil. Aucun perçage, aucun câblage. Pose en une demi-journée, sans dégradation de votre intérieur.</p>
+      </div>
+      <div class="pourquoi-card">
+        <span class="pourquoi-ico">📱</span>
+        <h3>Contrôle sur smartphone</h3>
+        <p>Armez, désarmez, consultez les caméras et recevez des alertes instantanées — où que vous soyez dans le monde.</p>
+      </div>
+      <div class="pourquoi-card">
+        <span class="pourquoi-ico">🛡️</span>
+        <h3>Matériel certifié grade 2</h3>
+        <p>Équipements homologués NF&A2P Grade 2, conformes aux exigences des assureurs. Réduction possible sur votre prime habitation.</p>
+      </div>
+      <div class="pourquoi-card">
+        <span class="pourquoi-ico">🎯</span>
+        <h3>Étude personnalisée gratuite</h3>
+        <p>Chaque maison est unique. Nous réalisons une étude des points vulnérables de votre domicile avant toute recommandation.</p>
+      </div>
+      <div class="pourquoi-card">
+        <span class="pourquoi-ico">🔋</span>
+        <h3>Autonomie 5 ans</h3>
+        <p>Piles longue durée sur tous les capteurs. Aucun entretien régulier, aucune coupure en cas de panne secteur grâce aux batteries de secours.</p>
+      </div>
+      <div class="pourquoi-card">
+        <span class="pourquoi-ico">💶</span>
+        <h3>Tarifs transparents</h3>
+        <p>Prix tout compris : matériel + installation + formation. Aucuns frais cachés, aucun abonnement imposé.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SOLUTIONS ═══ -->
+<section id="solutions-hab">
+  <span class="section-tag">Nos offres</span>
+  <h2 class="section-title">Choisissez votre <span class="accent">protection</span></h2>
+  <p class="section-desc">Des packs pensés pour chaque type de bien, du studio à la villa. Tous incluent l'installation et la mise en service.</p>
+  <div class="solutions-grid">
+
+    <!-- ESSENTIEL -->
+    <div class="sol-card">
+      <div class="sol-header">
+        <span class="sol-ico">🔐</span>
+        <div class="sol-name">Essentiel</div>
+        <div class="sol-desc">Pour un appartement ou une maison de ville. Protection des accès principaux.</div>
+        <div class="sol-price">
+          <div class="sol-price-from">À partir de</div>
+          <div class="sol-price-num">490<sup>€</sup></div>
+          <div class="sol-price-note">Installation incluse · TVA 20%</div>
+        </div>
+      </div>
+      <div class="sol-body">
+        <ul class="sol-features">
+          <li>Centrale alarme sans fil</li>
+          <li>2 détecteurs d'ouverture porte/fenêtre</li>
+          <li>1 détecteur de mouvement infrarouge</li>
+          <li>1 sirène intérieure 100 dB</li>
+          <li>Alertes SMS + appel téléphonique</li>
+          <li>Application smartphone incluse</li>
+          <li>Installation + mise en service</li>
+        </ul>
+      </div>
+      <a href="index.html#contact" class="sol-cta">Demander un devis</a>
+    </div>
+
+    <!-- CONFORT (featured) -->
+    <div class="sol-card featured">
+      <div class="sol-header">
+        <span class="sol-ico">🏡</span>
+        <div class="sol-name">Confort</div>
+        <div class="sol-desc">Notre solution la plus populaire. Maison individuelle, couverture intérieure et extérieure complète.</div>
+        <div class="sol-price">
+          <div class="sol-price-from">À partir de</div>
+          <div class="sol-price-num">890<sup>€</sup></div>
+          <div class="sol-price-note">Installation incluse · TVA 20%</div>
+        </div>
+      </div>
+      <div class="sol-body">
+        <ul class="sol-features">
+          <li>Centrale alarme Grade 2 NF&A2P</li>
+          <li>4 détecteurs d'ouverture porte/fenêtre</li>
+          <li>2 détecteurs de mouvement PIR</li>
+          <li>1 caméra HD extérieure (vision nocturne)</li>
+          <li>1 sirène extérieure 110 dB + flash</li>
+          <li>Alertes SMS, appel + notification app</li>
+          <li>Visionnage live depuis le smartphone</li>
+          <li>Batterie secours 24h intégrée</li>
+          <li>Installation + formation utilisateur</li>
+        </ul>
+      </div>
+      <a href="index.html#contact" class="sol-cta">Demander un devis</a>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="sol-card">
+      <div class="sol-header">
+        <span class="sol-ico">🏰</span>
+        <div class="sol-name">Premium</div>
+        <div class="sol-desc">Protection maximale pour grandes maisons, villas ou propriétés avec terrain.</div>
+        <div class="sol-price">
+          <div class="sol-price-from">À partir de</div>
+          <div class="sol-price-num">1 490<sup>€</sup></div>
+          <div class="sol-price-note">Sur devis · Installation incluse</div>
+        </div>
+      </div>
+      <div class="sol-body">
+        <ul class="sol-features">
+          <li>Centrale alarme Grade 2 + télésurveillance</li>
+          <li>Détecteurs d'ouverture illimités</li>
+          <li>3 caméras HD (intérieure + extérieure)</li>
+          <li>Détecteur bris de vitre</li>
+          <li>2 sirènes intérieure + extérieure</li>
+          <li>Détecteur de fumée connecté</li>
+          <li>Enregistrement cloud 30 jours</li>
+          <li>Accès multi-utilisateurs (famille)</li>
+          <li>Garantie matériel 3 ans</li>
+          <li>Visite de maintenance annuelle incluse</li>
+        </ul>
+      </div>
+      <a href="index.html#contact" class="sol-cta">Demander un devis</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ COMMENT ÇA MARCHE ═══ -->
+<div id="comment-hab">
+  <div class="comment-inner">
+    <span class="section-tag">Notre méthode</span>
+    <h2 class="section-title" style="color:white">De la visite à la <span style="color:var(--yellow)">protection totale</span></h2>
+    <p class="section-desc">Un process clair, en 4 étapes. De votre premier contact à votre maison sécurisée — sous 48h.</p>
+    <div class="process-hab">
+      <div class="proc-hab-step">
+        <div class="proc-hab-num">1</div>
+        <span class="proc-hab-ico">📞</span>
+        <h3>Contact & devis</h3>
+        <p>Échange téléphonique gratuit pour comprendre votre besoin. Devis personnalisé sous 24h, sans engagement.</p>
+      </div>
+      <div class="proc-hab-step">
+        <div class="proc-hab-num">2</div>
+        <span class="proc-hab-ico">🔍</span>
+        <h3>Audit sécurité</h3>
+        <p>Visite à domicile gratuite. Identification des points faibles : accès, angles morts, zones à risque.</p>
+      </div>
+      <div class="proc-hab-step">
+        <div class="proc-hab-num">3</div>
+        <span class="proc-hab-ico">⚡</span>
+        <h3>Installation express</h3>
+        <p>Pose du matériel en une demi-journée. Aucun câble, aucun perçage. Votre intérieur reste intact.</p>
+      </div>
+      <div class="proc-hab-step">
+        <div class="proc-hab-num">4</div>
+        <span class="proc-hab-ico">📱</span>
+        <h3>Formation & suivi</h3>
+        <p>Prise en main de l'application. Nous restons disponibles pour toute question, même après l'installation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ÉQUIPEMENTS ═══ -->
+<div id="equipements">
+  <div class="equip-inner">
+    <span class="section-tag">Les équipements</span>
+    <h2 class="section-title">Du matériel <span class="accent">pro</span>, installé<br>comme il faut</h2>
+    <div class="equip-layout">
+      <div class="equip-list">
+        <div class="equip-item">
+          <div class="equip-ico-wrap">🚨</div>
+          <div class="equip-body">
+            <h3>Centrale d'alarme sans fil</h3>
+            <p>Cerveau du système. Reçoit tous les capteurs, gère les zones, déclenche les alertes. Batterie secours 24h intégrée. Compatible avec tous nos équipements.</p>
+            <span class="equip-tag">Grade 2 NF&A2P</span>
+          </div>
+        </div>
+        <div class="equip-item">
+          <div class="equip-ico-wrap">📷</div>
+          <div class="equip-body">
+            <h3>Caméras HD vision nocturne</h3>
+            <p>Résolution 2K, vision nocturne infrarouge, détection de mouvement intelligente. Visionnage en direct et enregistrement cloud. Résistante aux intempéries (IP66).</p>
+            <span class="equip-tag">Vision nocturne 15m</span>
+          </div>
+        </div>
+        <div class="equip-item">
+          <div class="equip-ico-wrap">🔔</div>
+          <div class="equip-body">
+            <h3>Détecteurs d'ouverture</h3>
+            <p>Ultra-discrets, magnétiques. Détection instantanée d'ouverture de porte ou fenêtre. Autonomie 5 ans. Pose en 30 secondes, sans outil.</p>
+            <span class="equip-tag">Autonomie 5 ans</span>
+          </div>
+        </div>
+        <div class="equip-item">
+          <div class="equip-ico-wrap">👁️</div>
+          <div class="equip-body">
+            <h3>Détecteurs de mouvement PIR</h3>
+            <p>Portée 12 mètres, angle 90°. Algorithme anti-fausses alarmes (ignore animaux < 25kg). Double technologie infrarouge + micro-ondes.</p>
+            <span class="equip-tag">Anti-fausses alarmes</span>
+          </div>
+        </div>
+        <div class="equip-item">
+          <div class="equip-ico-wrap">📢</div>
+          <div class="equip-body">
+            <h3>Sirènes intérieure & extérieure</h3>
+            <p>110 dB, flash lumineux rouge/bleu. Boîtier anti-sabotage. Sirène extérieure avec batterie autonome — continue à sonner même en cas de coupure secteur.</p>
+            <span class="equip-tag">110 dB · Anti-sabotage</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Diagram -->
+      <div class="equip-diagram">
+        <div class="equip-diagram-title">🏠 Couverture de votre domicile</div>
+        <div class="house-diagram">
+          <div class="hd-roof">🏠</div>
+          <div class="hd-label">Zones surveillées en temps réel</div>
+          <div class="hd-zones">
+            <div class="hd-zone">
+              <div class="hd-zone-dot" style="background:#4cff88;box-shadow:0 0 6px #4cff88"></div>
+              <div class="hd-zone-name">Porte d'entrée</div>
+              <div class="hd-zone-status status-ok">● Fermée</div>
+            </div>
+            <div class="hd-zone">
+              <div class="hd-zone-dot" style="background:#4cff88;box-shadow:0 0 6px #4cff88"></div>
+              <div class="hd-zone-name">Fenêtres RDC</div>
+              <div class="hd-zone-status status-ok">● Fermées</div>
+            </div>
+            <div class="hd-zone">
+              <div class="hd-zone-dot" style="background:#4cff88;box-shadow:0 0 6px #4cff88"></div>
+              <div class="hd-zone-name">Salon — mouvement</div>
+              <div class="hd-zone-status status-ok">● Aucun</div>
+            </div>
+            <div class="hd-zone">
+              <div class="hd-zone-dot" style="background:#4cff88;box-shadow:0 0 6px #4cff88"></div>
+              <div class="hd-zone-name">Caméra extérieure</div>
+              <div class="hd-zone-status status-ok">● Active</div>
+            </div>
+            <div class="hd-zone">
+              <div class="hd-zone-dot" style="background:#4cff88;box-shadow:0 0 6px #4cff88"></div>
+              <div class="hd-zone-name">Porte garage</div>
+              <div class="hd-zone-status status-ok">● Fermée</div>
+            </div>
+          </div>
+          <div class="equip-central">
+            <span class="equip-central-ico">🛡️</span>
+            <div>
+              <div class="equip-central-text">SYSTÈME ARMÉ</div>
+              <div class="equip-central-sub">Toutes les zones actives · 0 anomalie</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TÉMOIGNAGES ═══ -->
+<section id="testi-hab">
+  <span class="section-tag">Ils nous font confiance</span>
+  <h2 class="section-title">Ce que disent<br>nos <span class="accent">clients</span></h2>
+  <div class="testi-hab-grid">
+    <div class="testi-hab-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">« Installation ultra-rapide, le technicien a été professionnel et pédagogue. L'application est intuitive, je vérifie ma maison depuis mon téléphone en quelques secondes. »</p>
+      <div class="testi-author">Marie-Hélène D.</div>
+      <div class="testi-location">Maison individuelle — Bretagne</div>
+    </div>
+    <div class="testi-hab-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">« Après un cambriolage dans le quartier, j'ai fait appel à PLUG ELECTROTECH. En 3h tout était installé. Depuis, j'ai l'esprit tranquille même en voyage. »</p>
+      <div class="testi-author">Bernard L.</div>
+      <div class="testi-location">Villa avec terrain — Normandie</div>
+    </div>
+    <div class="testi-hab-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">« Le rapport qualité/prix est imbattable. Même prix qu'une alarme du commerce, mais avec une installation pro et un vrai suivi. Je recommande sans hésiter. »</p>
+      <div class="testi-author">Sophie & Marc T.</div>
+      <div class="testi-location">Appartement — Paris</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<div id="cta-hab">
+  <div class="cta-hab-inner">
+    <h2>Votre maison mérite<br><span>une vraie protection.</span></h2>
+    <p>Devis gratuit, sans engagement. Nous répondons sous 24h et intervenons dans toute la France. Premier rendez-vous offert.</p>
+    <div class="cta-hab-actions">
+      <a href="index.html#contact" class="btn-white">📞 Demander un devis gratuit</a>
+      <a href="tel:0664942691" class="btn-outline-white2">06 64 94 26 91</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      PLUG ELECTROTECH
+      <small>Système de sécurité</small>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Alarmes Marines</a>
+      <a href="habitation.html">Solutions Habitation</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="mailto:Plugelectrotech@me.com">Plugelectrotech@me.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2024 PLUG ELECTROTECH — Tous droits réservés · Alarme marine & habitation · France
+  </div>
+</footer>
+
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta-bar">
+  <a href="tel:0664942691">📞 Appeler</a>
+  <a href="index.html#contact">✉ Devis gratuit</a>
+</div>
+
+<script>
+function toggleMenu() {
+  const links = document.getElementById('nav-links');
+  const burger = document.getElementById('nav-burger');
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+function closeMenu() {
+  const links = document.getElementById('nav-links');
+  const burger = document.getElementById('nav-burger');
+  links.classList.remove('open');
+  burger.classList.remove('open');
+}
+</script>
+</body>
+</html>
